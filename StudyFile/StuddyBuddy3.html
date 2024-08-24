@@ -1,0 +1,138 @@
+npx create-react-app study-buddy
+cd study-buddy
+study-buddy/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   ├── Hero.js
+│   │   ├── Home.js
+│   │   └── Grade8.js
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+└── package.json
+import React from 'react';
+import './Header.css'; // Add any specific styles if needed
+
+function Header() {
+  return (
+    <header>
+      <div className="logo">
+        <img src="/images/OIP (12).jpeg" alt="Trinity House Logo" />
+        <h1>Study Buddy</h1>
+      </div>
+      <p>For Trinity House Centurion Students</p>
+    </header>
+  );
+}
+
+export default Header;
+import React from 'react';
+
+function Footer() {
+  return (
+    <footer>
+      <p>&copy; 2024 Study Buddy. All rights reserved. | Trinity House Centurion</p>
+    </footer>
+  );
+}
+
+export default Footer;
+import React from 'react';
+
+function Hero() {
+  return (
+    <div className="hero">
+      <h2>Welcome to Study Buddy</h2>
+    </div>
+  );
+}
+
+export default Hero;
+import React from 'react';
+import Header from './Header';
+import Hero from './Hero';
+import Footer from './Footer';
+import './Home.css'; // Add any specific styles if needed
+
+function Home() {
+  return (
+    <div>
+      <Header />
+      <Hero />
+      <div className="content">
+        <h3>Select Your Grade</h3>
+        <a href="/grade8" className="cta-button">Grade 8</a>
+        <a href="/grade9" className="cta-button">Grade 9</a>
+        <a href="/grade10" className="cta-button">Grade 10</a>
+        <a href="/grade11" className="cta-button">Grade 11</a>
+        <a href="/grade12" className="cta-button">Grade 12</a>
+        <br />
+        <a href="#" className="cta-button">Contact Us</a>
+        <a href="#" className="cta-button">Request Extra Resources</a>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export default Home;
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import './Grade8.css'; // Add any specific styles if needed
+
+function Grade8() {
+  return (
+    <div>
+      <Header />
+      <div className="content">
+        <div className="grade-section">
+          <h4>English</h4>
+          <ul>
+            <li><a href="https://youtu.be/l-wS6qLvNx0?si=0JuKn9uXBakNIA3K" target="_blank" rel="noopener noreferrer">Introduction to English Literature</a></li>
+            <li><a href="https://youtu.be/I0RQar0Fht4?si=Y93j9sOO0rHXzUWd" target="_blank" rel="noopener noreferrer">Understanding Poetry</a></li>
+            <li><a href="https://youtu.be/Auq3YW5BI9Q?si=Xsh4Zx80uh4APlov" target="_blank" rel="noopener noreferrer">Grammar Basics</a></li>
+            <li><a href="https://youtu.be/Ppj9mHbMenU?si=PLt-T1bkK93nWfJg" target="_blank" rel="noopener noreferrer">Writing Techniques</a></li>
+          </ul>
+        </div>
+
+        <div className="grade-section">
+          <h4>Past Papers</h4>
+          <ul>
+            <li><a href="#">Past Paper 1</a></li>
+            <li><a href="#">Past Paper 2</a></li>
+            <li><a href="#">Past Paper 3</a></li>
+          </ul>
+        </div>
+
+        <a href="/" className="back-button">Back to Home</a>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export default Grade8;
+npm install react-router-dom
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Grade8 from './components/Grade8';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/grade8" element={<Grade8 />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+npm start
